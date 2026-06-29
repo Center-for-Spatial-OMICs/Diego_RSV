@@ -1,0 +1,23 @@
+# Ignore everything by default
+*
+
+# Allow Git to traverse directories
+!*/
+
+# Track R scripts
+!*.R
+
+# Track R Markdown
+!*.Rmd
+
+# Track Quarto documents
+!*.qmd
+
+# Track Markdown
+!*.md
+
+# Keep this file
+!.gitignore
+
+# Keep README files
+!README*
