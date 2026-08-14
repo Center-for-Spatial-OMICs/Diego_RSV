@@ -11,7 +11,7 @@ library(ggrepel)
 # # don't exist
 # indir <- "/media/ResearchHome/plummgrp/home/common/CSO-Dir/Files/StJude/GeoMx/DiegoGrp/Data/Diego-RSV-Processed/Manual_Annotation/2026"
 
-outdir <- file.path("/mnt/scratch1/maycon/Diego_RSV_CosMx/GeoMx_from_Yutian/results/DEG", "Reinfection_pairwise_DEG")
+outdir <- file.path("/mnt/scratch1/maycon/Diego_RSV_CosMx/GeoMx/results/DEG", "Reinfection_pairwise_DEG")
 
 dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
 

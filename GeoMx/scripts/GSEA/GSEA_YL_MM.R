@@ -10,7 +10,7 @@ library(patchwork)
 library(ggrepel)
 
 # check all available DEG names
-deg_list <- readRDS("/mnt/scratch1/maycon/Diego_RSV_CosMx/GeoMx_from_Yutian/results/DEG/Reinfection_pairwise_DEG/Reinfected_pairwise_DEG_list.rds")
+deg_list <- readRDS("/mnt/scratch1/maycon/Diego_RSV_CosMx/GeoMx/results/DEG/Reinfection_pairwise_DEG/Reinfected_pairwise_DEG_list.rds")
 cat("All DEG names:\n")
 print(names(deg_list))
 
@@ -287,7 +287,7 @@ for (nm in names(deg_list)) {
     comp_name = nm,
     gene_sets = gene_sets,
     outdir = file.path(
-      "/mnt/scratch1/maycon/Diego_RSV_CosMx/GeoMx_from_Yutian/results/GSEA",
+      "/mnt/scratch1/maycon/Diego_RSV_CosMx/GeoMx/results/GSEA",
       safe_name
     )
   )
