@@ -1,0 +1,90 @@
+"","major_minor_celltype","Group","Total_Cells"
+"1","Apoe+/C1q+ macrophage/APC (Dendritic)","Adult Control",76
+"2","Apoe+/C1q+ macrophage/APC (Dendritic)","Adult RSV infected",67
+"3","Apoe+/C1q+ macrophage/APC (Dendritic)","Adult reinfected",285
+"4","Apoe+/C1q+ macrophage/APC (Dendritic)","Neonate (NO IFN) reinfected",3858
+"5","Apoe+/C1q+ macrophage/APC (Dendritic)","Neonate IFN and RSV infected",4
+"6","Apoe+/C1q+ macrophage/APC (Dendritic)","Neonate IFN and RSV reinfected",6338
+"7","Apoe+/C1q+ macrophage/APC (Dendritic)","Neonate RSV infected (NO IFN)",7
+"8","Apoe+/C1q+ macrophage/APC (Dendritic)","Neonate control",45
+"9","Bcell","Adult Control",172
+"10","Bcell","Adult RSV infected",261
+"11","Bcell","Adult reinfected",124
+"12","Bcell","Neonate (NO IFN) reinfected",11
+"13","Bcell","Neonate IFN and RSV infected",125
+"14","Bcell","Neonate IFN and RSV reinfected",96
+"15","Bcell","Neonate RSV infected (NO IFN)",123
+"16","Bcell","Neonate control",491
+"17","cDC (Dendritic)","Adult Control",170
+"18","cDC (Dendritic)","Adult RSV infected",113
+"19","cDC (Dendritic)","Adult reinfected",317
+"20","cDC (Dendritic)","Neonate (NO IFN) reinfected",4024
+"21","cDC (Dendritic)","Neonate IFN and RSV infected",7
+"22","cDC (Dendritic)","Neonate IFN and RSV reinfected",6571
+"23","cDC (Dendritic)","Neonate RSV infected (NO IFN)",4
+"24","cDC (Dendritic)","Neonate control",54
+"25","Endothelial","Adult Control",10261
+"26","Endothelial","Adult RSV infected",13953
+"27","Endothelial","Adult reinfected",9141
+"28","Endothelial","Neonate (NO IFN) reinfected",3472
+"29","Endothelial","Neonate IFN and RSV infected",8029
+"30","Endothelial","Neonate IFN and RSV reinfected",8876
+"31","Endothelial","Neonate RSV infected (NO IFN)",6106
+"32","Endothelial","Neonate control",29062
+"33","Epithelial","Adult Control",8774
+"34","Epithelial","Adult RSV infected",13988
+"35","Epithelial","Adult reinfected",13884
+"36","Epithelial","Neonate (NO IFN) reinfected",1743
+"37","Epithelial","Neonate IFN and RSV infected",6719
+"38","Epithelial","Neonate IFN and RSV reinfected",2613
+"39","Epithelial","Neonate RSV infected (NO IFN)",6129
+"40","Epithelial","Neonate control",24519
+"41","Lymphocytes","Adult Control",31992
+"42","Lymphocytes","Adult RSV infected",26677
+"43","Lymphocytes","Adult reinfected",19890
+"44","Lymphocytes","Neonate (NO IFN) reinfected",1413
+"45","Lymphocytes","Neonate IFN and RSV infected",11035
+"46","Lymphocytes","Neonate IFN and RSV reinfected",4718
+"47","Lymphocytes","Neonate RSV infected (NO IFN)",15758
+"48","Lymphocytes","Neonate control",28975
+"49","Myeloid","Adult Control",996
+"50","Myeloid","Adult RSV infected",1898
+"51","Myeloid","Adult reinfected",6008
+"52","Myeloid","Neonate (NO IFN) reinfected",2578
+"53","Myeloid","Neonate IFN and RSV infected",432
+"54","Myeloid","Neonate IFN and RSV reinfected",4037
+"55","Myeloid","Neonate RSV infected (NO IFN)",404
+"56","Myeloid","Neonate control",1553
+"57","other","Adult Control",1268
+"58","other","Adult RSV infected",1435
+"59","other","Adult reinfected",1349
+"60","other","Neonate (NO IFN) reinfected",6806
+"61","other","Neonate IFN and RSV infected",415
+"62","other","Neonate IFN and RSV reinfected",14034
+"63","other","Neonate RSV infected (NO IFN)",456
+"64","other","Neonate control",2001
+"65","Stroma","Adult Control",625
+"66","Stroma","Adult RSV infected",461
+"67","Stroma","Adult reinfected",971
+"68","Stroma","Neonate (NO IFN) reinfected",4546
+"69","Stroma","Neonate IFN and RSV infected",368
+"70","Stroma","Neonate IFN and RSV reinfected",9178
+"71","Stroma","Neonate RSV infected (NO IFN)",405
+"72","Stroma","Neonate control",1106
+"73","Stroma","Stroma",69511
+"74","Tcd4","Adult Control",212
+"75","Tcd4","Adult RSV infected",136
+"76","Tcd4","Adult reinfected",95
+"77","Tcd4","Neonate (NO IFN) reinfected",3
+"78","Tcd4","Neonate IFN and RSV infected",98
+"79","Tcd4","Neonate IFN and RSV reinfected",26
+"80","Tcd4","Neonate RSV infected (NO IFN)",210
+"81","Tcd4","Neonate control",282
+"82","Tcd8","Adult Control",97
+"83","Tcd8","Adult RSV infected",188
+"84","Tcd8","Adult reinfected",982
+"85","Tcd8","Neonate (NO IFN) reinfected",50
+"86","Tcd8","Neonate IFN and RSV infected",102
+"87","Tcd8","Neonate IFN and RSV reinfected",441
+"88","Tcd8","Neonate RSV infected (NO IFN)",67
+"89","Tcd8","Neonate control",258

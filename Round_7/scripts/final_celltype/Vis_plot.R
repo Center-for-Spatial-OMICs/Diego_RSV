@@ -24,6 +24,40 @@ source("/mnt/scratch2/Maycon/Utils/R_codabase/Utils.R")
 # Merged obj 
 SeuObj <- qread("/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/Sobj_all467158cells_clustered.qs")
 
+## Export cell count table
+SeuObj$minor_celltype %>% table()
+SeuObj$major_celltype %>% table()
+SeuObj$major_minor_celltype %>% table()
+SeuObj$TMA_4
+SeuObj$Group %>% table()
+
+table(SeuObj@meta.data$TMA_4) #weird stroma lv here ...
+
+cell_counts <- SeuObj@meta.data %>%
+  dplyr::count(
+    major_minor_celltype,
+    TMA_4,
+    Group,
+    name = "Cell_Count"
+  ) %>%
+  dplyr::arrange(major_minor_celltype, TMA_4, Group)
+
+cell_counts %>% head()
+
+cell_counts_by_group <- SeuObj@meta.data %>%
+  dplyr::count(
+    major_minor_celltype,
+    Group,
+    name = "Total_Cells"
+  ) %>%
+  dplyr::arrange(major_minor_celltype, Group)
+
+cell_counts_by_group 
+head(cell_counts_by_group)
+# write.csv(cell_counts_by_group, "/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/cell_counts_by_group_by_celltype.csv")
+
+
+
 # Seurat obj list (spatial layers)
 obj_list <- qread("/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_6/Objects/Sobj_list_TMA_ID_fixed.qs")
 obj_list$`NA` <- NULL
