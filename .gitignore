@@ -21,3 +21,8 @@
 
 # Keep README files
 !README*
+
+# other files
+!/Round_7/README.md
+.Rproj.user
+!/Diego_RSV_CosMx/GeoMx_from_Yutian/

@@ -92,6 +92,9 @@ cell_types_markers_diego <- list(
 
 # Merged obj 
 SeuObj <- qread("/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/data/Processed/merged_Sobj_UMAP.qs")
+SeuObj_bk <- SeuObj
+DimPlot(SeuObj, 
+        group.by = "major_celltype") & NoAxes()
 
 
 ### Lymphocytes - subtypes (Tcd4, Tcd8, Bcell) ---------
@@ -339,6 +342,15 @@ print(p_props)
 ### Dendritic cells - subtypes () ---------
 library(Seurat)
 library(dplyr)
+
+SeuObj <- subset(SeuObj, major_celltype %in% "Dendritic_cell")
+celltype_cols <- c("pDC" = "#FF7F00", 
+                   "cDC" = "#7F3F00")
+
+DimPlot(SeuObj, 
+        group.by = "major_celltype") & NoAxes()
+
+
 
 # Extract raw counts matrix from Nanostring assay
 counts <- SeuObj@assays$Nanostring$counts

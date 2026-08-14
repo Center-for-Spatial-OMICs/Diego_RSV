@@ -335,6 +335,15 @@ FeaturePlot(
 ) & NoAxes()
 
 
+latest_genes <- c("Tcf4", "Siglech", "Bst2", "Ccr9", "Ly6d", "Irf7", "Mx1", "Ly6a", "Cd69")
+FeaturePlot(
+  SeuObj,
+  features = latest_genes,
+  order = TRUE
+) & NoAxes()
+
+
+
 
 # Cell type prop. barplots, group by group, not TMA wise ----
 library(dplyr)

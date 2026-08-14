@@ -2104,3 +2104,12 @@ SeuObj$minor_celltype[rownames(obj@meta.data)] <-
 table(SeuObj$minor_celltype)
 
 # qsave(SeuObj, "/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/Sobj_all467158cells_clustered.qs")
+
+
+SeuObj <- qread("/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/Sobj_all467158cells_clustered.qs")
+
+DimPlot(SeuObj, 
+        group.by = "minor_celltype") & NoAxes()
+
+DimPlot(SeuObj, 
+        group.by = "major_celltype") & NoAxes()

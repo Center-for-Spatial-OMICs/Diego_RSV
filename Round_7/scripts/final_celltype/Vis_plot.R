@@ -1118,3 +1118,166 @@ scale_color_gradientn(
 ) &
 NoAxes()
 
+
+
+### TESTS TESTS TESTS TESTS TESTS ### 
+sobj_sub <- qread("/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/Sobj_Den21940cells_clustered.qs")
+
+latest_genes <- c("Tcf4", "Siglech", "Bst2", "Ccr9", "Ly6d", "Irf7", "Mx1", "Ly6a", "Cd69")#  not found in the panel c("Tcf4", "Siglech", "Irf7", "Ly6a")
+FeaturePlot(
+  sobj_sub,
+  features = latest_genes,
+  order = TRUE
+) & NoAxes()
+
+VlnPlot(sobj_sub, 
+        features = latest_genes)
+
+table(sobj_sub$minor_celltype)
+
+# chatBot list based on the 1k panel
+pDC_vs_cDC <- c(
+  # pDC
+  "Bst2", "Ccr9", "Gzmb", "Tlr7", "Ly6d",
+
+  # cDC
+  "Itgax", "Clec10a", "Clec4a1", "Clec1a",
+  "Cd209a", "Cd209e", "Clec12a"
+)
+
+FeaturePlot(
+  sobj_sub,
+  features = pDC_vs_cDC,
+  order = TRUE
+)  & NoAxes()
+
+sobj_sub@assays$RNA<- sobj_sub@assays$Nanostring
+table(sobj_sub$minor_celltype)
+library(presto)
+markers <- presto::wilcoxauc(sobj_sub, group_by = "minor_celltype")
+# Filter DEGs based only in FC
+markers %>%
+  group_by(group) %>%
+  dplyr::filter(logFC > 0 & padj <= 0.05) %>%
+  # slice_head(n = 10) %>%
+  dplyr::top_n(wt = logFC, n = 10) %>% 
+  ungroup() -> top_markers
+
+
+markers[markers$feature %in% latest_genes, ]
+
+library(ggplot2)
+library(viridis)
+Idents(sobj_sub) <- "minor_celltype"
+DotPlot(sobj_sub, 
+        #features = unique(top_markers$feature)
+        features = unique(latest_genes)
+        #features = unique(c(top_markers$feature, latest_genes))
+        #features = unique(pDC_vs_cDC)
+) +
+  geom_point(aes(size=pct.exp), shape = 21, colour="black", stroke=0.5) +
+  scale_colour_viridis(option="magma") +
+  guides(size=guide_legend(override.aes=list(shape=21, colour="black", fill="white"))) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ggtitle("")
+
+
+latest_genes <- c("Tcf4", "Siglech", "Bst2", "Ccr9", "Ly6d", "Irf7", "Mx1", "Ly6a", "Cd69")#  not found in the panel c("Tcf4", "Siglech", "Irf7", "Ly6a")
+FeaturePlot(
+  SeuObj,
+  features = latest_genes,
+  order = TRUE
+) & NoAxes()
+
+Idents(SeuObj) <- "major_celltype"
+VlnPlot(SeuObj,
+        features = latest_genes, pt.size = 0)
+
+
+
+
+### Adding all cell type annotation to the main object 
+SeuObj <- qread("/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/Sobj_all467158cells_clustered.qs")
+
+SeuObj_lyn <- qread("/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/Sobj_Lyn4650cells_clustered.qs")
+
+SeuObj_den <- qread("/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/Sobj_Den21940cells_clustered.qs")
+
+#--------------------------------------------------
+# 1. Initialize minor_celltype
+#--------------------------------------------------
+
+SeuObj$minor_celltype <- NA_character_
+
+
+#--------------------------------------------------
+# 2. Fill minor_celltype from SeuObj_lyn
+#--------------------------------------------------
+
+common_cells_lyn <- intersect(
+  colnames(SeuObj),
+  colnames(SeuObj_lyn)
+)
+
+SeuObj$minor_celltype[common_cells_lyn] <-
+  SeuObj_lyn$cell_based_final[common_cells_lyn]
+
+
+#--------------------------------------------------
+# 3. Fill minor_celltype from SeuObj_den
+#--------------------------------------------------
+
+common_cells_den <- intersect(
+  colnames(SeuObj),
+  colnames(SeuObj_den)
+)
+
+SeuObj$minor_celltype[common_cells_den] <-
+  SeuObj_den$minor_celltype[common_cells_den]
+
+
+#--------------------------------------------------
+# 4. Create major_minor_celltype
+#
+# Start with major_celltype for EVERY cell,
+# then replace with minor_celltype wherever available
+#--------------------------------------------------
+
+SeuObj$major_minor_celltype <- as.character(
+  SeuObj$major_celltype
+)
+
+has_minor <- !is.na(SeuObj$minor_celltype) &
+             SeuObj$minor_celltype != ""
+
+SeuObj$major_minor_celltype[has_minor] <-
+  SeuObj$minor_celltype[has_minor]
+
+
+# Convert to factors if desired
+SeuObj$minor_celltype <- factor(SeuObj$minor_celltype)
+SeuObj$major_minor_celltype <- factor(SeuObj$major_minor_celltype)
+
+table(SeuObj$major_celltype, useNA = "ifany")
+table(SeuObj$minor_celltype, useNA = "ifany")
+table(SeuObj$major_minor_celltype, useNA = "ifany")
+
+length(common_cells_lyn)
+length(common_cells_den)
+
+# Make sure every subset cell was found in SeuObj
+length(setdiff(colnames(SeuObj_lyn), colnames(SeuObj)))
+length(setdiff(colnames(SeuObj_den), colnames(SeuObj)))
+
+SeuObj@meta.data$major_celltype %>% table()
+SeuObj@meta.data$minor_celltype %>% table()
+SeuObj@meta.data$major_minor_celltype %>% table()
+
+
+DimPlot(subset(SeuObj, major_celltype %in% "other", invert = T), 
+        group.by = "major_celltype", 
+        reduction = "UMAP_regular",
+        cols = celltype_cols) & NoAxes() 
+
+# qsave(SeuObj, "/mnt/scratch1/maycon/Diego_RSV_CosMx/Round_7/results/final_celltype/Sobj_all467158cells_clustered.qs")
+
+
