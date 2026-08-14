@@ -1,0 +1,44 @@
+cell_types_markers_diego <- list(
+  "Dendritic_Cells" = list(
+    "Plasmacytoid_dendritic_cells_(pDCs)" = list(
+      "Markers" = c("Itgax", "Bst2", "Siglech") # CD11c, BST2, Siglec-H
+    ),
+    "Conventional_dendritic_cells_(cDCs)" = list(
+      "cDC1" = c("Itgax", "Cd8a"),   # CD11c, CD8a
+      "cDC2" = c("Itgax", "Itgam")   # CD11c, CD11b
+    )
+  ),
+  "Lymphocytes" = list(
+    "T_CD4_Cells" = list(
+      "Markers" = c("Ptprc", "Cd3e", "Cd4") # CD45, CD3, CD4
+    ),
+    "T_CD8_Cells" = list(
+      "Markers" = c("Ptprc", "Cd3e", "Cd8a") # CD45, CD3, CD8a
+    ),
+    "Activated_B_Cells" = list(
+      "Markers" = c("Ptprc", "Cd19", "Cd69"), # B220=CD45, CD19, CD69
+      "Ligands_on_pDC" = c("Tnfsf13b", "Tnfsf13"), # BAFF, APRIL
+      "Receptors_on_B_cells" = c("Tnfrsf13c", "Tnfrsf13b", "Tnfrsf17"), # BAFF-R, TACI, BCMA
+      "Memory_B_cells" = "Cd27",
+      "Plasmablast_and_Plasma_Cells" = "Sdc1" # CD138
+    )
+  ),
+  "Epithelial_Cells" = list(
+    "General_Marker" = "Epcam",
+    "Subtypes" = list(
+      "Club_Cells" = c("Scgb1a1"), # CC10/SCGB1A1
+      "AT1" = c("Pdpn", "Cav1"), # podoplanin, caveolin
+      "AT2" = "Sftpc",
+      "Goblet_cells" = "Muc5ac",
+      "Ciliated_cells" = c("Tuba1a", "Foxj1"), # α-Ac-Tub = Tuba1a (alpha-tubulin)
+      "Basal_cells" = "Krt5",
+      "Neuroendocrine_cells" = c("Calca", "Chga") # CGRP, Chromogranin A
+    ),
+    "ILCs" = list(
+      "Markers" = c("Ptprc", "Il7r", "Cd3e"), # CD45, CD127, CD3 (lineage negative = Cd3e-)
+      "ILC1" = NULL,
+      "ILC2" = c("Il1rl1"), # ST2
+      "ILC3" = NULL
+    )
+  )
+)

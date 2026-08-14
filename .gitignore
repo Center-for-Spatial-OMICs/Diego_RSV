@@ -4,17 +4,19 @@
 # Allow Git to traverse directories
 !*/
 
-# Track R scripts
+# Track scripts and documents
 !*.R
-
-# Track R Markdown
 !*.Rmd
-
-# Track Quarto documents
 !*.qmd
-
-# Track Markdown
 !*.md
+!*.ipynb
+
+# Track results and metadata
+!*.csv
+!*.png
+!*.pdf
+!*.xlsx
+!*.txt
 
 # Keep this file
 !.gitignore
@@ -22,7 +24,26 @@
 # Keep README files
 !README*
 
-# other files
-!/Round_7/README.md
-.Rproj.user
-!/Diego_RSV_CosMx/GeoMx_from_Yutian/
+# Large data objects (not suitable for GitHub)
+*.qs
+*.rds
+*.rda
+*.h5ad
+**/Objects/
+
+# IDE and session files
+.Rproj.user/
+.Rhistory
+*.Rproj
+*.pper
+*.log
+
+# Large standalone data directories
+Neighborhood_FSD/
+Round_7/data/
+
+# PDFs over GitHub's 100 MB file limit
+Round_1/Plots/Adult_2_report.pdf
+Round_1/Plots/Neonate_2_report_GroupsAdded.pdf
+Round_3/Plots/Neonate IFN and RSV reinfected_vs_Adult reinfected_report.pdf
+Round_6/Plots/Bcell_marker_by_Group_TMA.pdf
