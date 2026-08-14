@@ -23,6 +23,7 @@
 
 # Keep README files
 !README*
+GeoMx/README.md
 
 # Large data objects (not suitable for GitHub)
 *.qs
