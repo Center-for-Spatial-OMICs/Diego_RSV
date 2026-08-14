@@ -41,6 +41,7 @@
 # Large standalone data directories
 Neighborhood_FSD/
 Round_7/data/
+GeoMx_from_Yutian/
 
 # PDFs over GitHub's 100 MB file limit
 Round_1/Plots/Adult_2_report.pdf
